@@ -1,0 +1,28 @@
+
+/* Apply the animation to the button */
+.btn-profile {
+     background: rgba(23,24,33,0.91);
+     border-radius: 0;
+     color: #c1931f;
+     box-shadow: none;
+     border: 1px solid #c1931f;
+     text-shadow: none;
+     padding: 10px 22px;
+     transition: background-color 0.25s, color 0.25s;
+ }
+ .btn-profile:disabled {
+    background: rgba(23,24,33,0.91);
+    border-radius: 0;
+    color: rgba(23,24,33,0.91);
+    box-shadow: none;
+    border: 1px solid #c1931f;
+    text-shadow: none;
+    padding: 10px 22px;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+/* Add hover effect */
+.btn-profile:hover {
+    background-color: rgba(23,24,33,0.91); /* Change this to your desired hover background color */
+    color: rgba(250,169,13,0.91); /* Change this to your desired hover text color */
+}
