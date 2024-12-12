@@ -81,7 +81,11 @@ export const FacilityCard = (props) => {
 
     return (
         <div className={`flex justify-between items-center bg-white w-[90%] p-4 rounded-lg hover:bg-gradient-to-r from-[#fff2da] to-[#FFF] hover:border-[1px] hover:scale-[1.01] hover:border-[blue] ${!isVisible && "hidden"}`}
-            onClick={() => display(<FacilityDetail props={props} />)}
+            onClick={(e) =>
+                {
+                    e.stopPropagation(); 
+                display(<FacilityDetail props={props} />)}
+            }
         >
             <div className="flex items-center gap-3">
                 <img src="https://xuonggooccho.com/ckfinder/userfiles/files/Hinh-anh-phong-ngu-dep-1.jpg" alt=""
@@ -107,7 +111,8 @@ export const FacilityCard = (props) => {
             </span>
             <div className="flex gap-3">
                 <button className="bg-red-300 text-[red] font-[500] p-2 rounded-lg hover:scale-[1.1]"
-                    onClick={() => {
+                    onClick={(e) => {
+                        e.stopPropagation();
                         confirmDelete(props.props)
                         handleClick()
                     }

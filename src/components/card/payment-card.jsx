@@ -81,7 +81,9 @@ export const PaymentCard = (props) => {
 
     return (
         <div className={`flex justify-between items-center bg-white w-[90%] p-4 rounded-lg hover:bg-gradient-to-r from-[#fff2da] to-[#FFF] hover:border-[1px] hover:scale-[1.01] hover:border-[blue]`}
-            onClick={() => { printBill(props.props) }}
+            onClick={(e) => { 
+                e.stopPropagation();
+                printBill(props.props) }}
         >
             <div className="flex items-center gap-3">
                 <img src="https://png.pngtree.com/png-clipart/20230925/original/pngtree-comicstyle-money-icon-on-white-background-with-payroll-concept-vector-png-image_12861632.png" alt=""
@@ -110,7 +112,8 @@ export const PaymentCard = (props) => {
             </span>
             <div className="flex gap-3">
                 <button className="bg-red-300 text-[red] font-[500] p-2 rounded-lg hover:scale-[1.1]"
-                    onClick={() => {
+                    onClick={(e) => {
+                        e.stopPropagation();
                         confirmDelete(props.props)
                     }
                     }
