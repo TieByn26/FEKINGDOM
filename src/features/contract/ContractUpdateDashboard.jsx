@@ -13,10 +13,10 @@ export function ContractUpdateDashboard() {
     }, []);
     return (<>
         <div id="page-top">
-            <div id="wrapper">
+            <div id="wrapper" className="d-flex h">
                 <SideBar/>
-                <div className="d-flex flex-column" id="content-wrapper">
-                    <div id="content" style={{background: "#171821"}}>
+                <div className="d-flex flex-column w-100 h-100 " id="content-wrapper">
+                    <div id="content" className="h-100" style={{background: "#171821"}}>
                         <HeaderDashboard/>
                         <div className="container-fluid"><Link to={"/user/contract/create"} className="btn btn-outline-light" type="button">Add Contract</Link><Link to={"/user/contract"} className="btn btn-outline-light" type="button">Contract List</Link>
                             <ContractUpdate/>

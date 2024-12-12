@@ -3,7 +3,7 @@ import "../../assets/css/btnHotel.css";
 const exRoom = "https://firebasestorage.googleapis.com/v0/b/ryukingdom-48b31.appspot.com/o/ex-room.jpg?alt=media&token=e832ebf7-d112-4de3-a5b4-a2a54535be6c";
 const dexRoom = "https://firebasestorage.googleapis.com/v0/b/ryukingdom-48b31.appspot.com/o/dex-room.jpg?alt=media&token=a169c143-a513-48d4-99cc-40d165114d88";
 const villa = "https://firebasestorage.googleapis.com/v0/b/ryukingdom-48b31.appspot.com/o/villa.jpg?alt=media&token=884beb65-c03b-40f0-ae02-c29e7b354361";
-const HotelHeader ="https://firebasestorage.googleapis.com/v0/b/ryukingdom-48b31.appspot.com/o/HotelHeader.png?alt=media&token=96226faf-f43b-4302-9408-7b6ad8654963";
+const HotelHeader ="https://media.discordapp.net/attachments/1090895809098289185/1313512293610291270/01_MSFT_DM_Landscape_Desktop_DM_4K.png?ex=675b9be6&is=675a4a66&hm=4123468c7c0840efc40c2a177489e9532aa6ef5d6d313e20aeec1d5a7891d029&=&format=webp&quality=lossless&width=1015&height=571";
 export function HeaderHome() {
     return (<>
             <header className="masthead" style={{

@@ -10,7 +10,7 @@ export default defineConfig({
       'pages': '/src/pages',
       'routes': '/src/routes',
       'services': '/src/services',
-      'reportWebVitals': '/src/reportWebVitals.js' 
+      'reportWebVitals': '/src/reportWebVitals.js' // Đặt lại đường dẫn chính xác
     },
   }
   

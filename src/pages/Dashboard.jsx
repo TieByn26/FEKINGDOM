@@ -11,7 +11,7 @@ export function Dashboard() {
     }, []);
     return (<>
         <div id="page-top" >
-            <div id="wrapper" >
+            <div id="wrapper" className="d-flex">
                 <SideBar/>
                 {
                    !AuthService.isAuthenticated() ? <ErrorPage/> : <Profile/>

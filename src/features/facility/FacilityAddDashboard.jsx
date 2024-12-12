@@ -14,9 +14,9 @@ export function FacilityAddDashboard() {
     }, []);
     return (<>
         <div id="page-top">
-            <div id="wrapper">
+            <div id="wrapper" className="d-flex">
                 <SideBar/>
-                <div className="d-flex flex-column" id="content-wrapper">
+                <div className="d-flex flex-column w-100 h-100" id="content-wrapper">
                     <div id="content" style={{background: "#171821"}}>
                         <HeaderDashboard/>
                         {
