@@ -20,8 +20,10 @@ export function PaymentBillDashboard() {
                         <div className="container-fluid">
                             {
                                 AuthService.isCustomer() ? null : (<>
-                                    <Link to={"/user/payment/create"} className="btn btn-outline-light" type="button">Add Payment</Link>
-                                    <Link to={"/user/payment"} className="btn btn-outline-light" type="button">Payment List</Link>
+                                     <div className="flex gap-2">
+                                        <Link to={"/user/payment/create"} className="btn btn-outline-light" type="button">Add Payment</Link>
+                                        <Link to={"/user/payment"} className="btn btn-outline-light" type="button">Payment List</Link>
+                                    </div>
                                 </>)
                             }
 

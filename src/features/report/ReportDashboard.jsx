@@ -17,7 +17,7 @@ export function ReportDashboard() {
                 <div className="d-flex flex-column w-100 h-100" id="content-wrapper">
                     <div id="content" style={{background: "#171821"}}>
                         <HeaderDashboard/>
-                        <div className="container-fluid bg-light">
+                        <div className="container-fluid">
                             {
                                 !AuthService.isAdmin() ? <ReportAdd/> : <ReportList/>
                             }

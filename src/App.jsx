@@ -35,11 +35,13 @@ import {ContractUpdateDashboard} from "./features/contract/ContractUpdateDashboa
 import AuthService from "./services/AuthService";
 import {ReportDashboard} from "./features/report/ReportDashboard";
 import {ErrorPage} from "./components/layout/ErrorPage";
+import { OverlayContainer } from "./components/overlay/overlay-container";
 
 
 function App() {
     return (<>
             <BrowserRouter>
+             <OverlayContainer />
                 <Routes>
 {/*Public routes*/}
                 <Route element={<PublicRoutes/>}>

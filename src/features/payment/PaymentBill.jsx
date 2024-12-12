@@ -3,10 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import PaymentService from "../../services/PaymentService";
 import "../../assets/css/bill.css";
 import html2pdf from "html2pdf.js";
+import { useOverlay } from "@/components/overlay/use-overlay";
 
-export function PaymentBill() {
+export const PaymentBill = (idBill) => {
+    const {dismiss} = useOverlay();
     const [payment, setPayment] = useState(null);
-    const { id } = useParams();
+    const id = idBill.idBill;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -36,53 +38,57 @@ export function PaymentBill() {
     };
 
     return (
-        <div className="bill-container">
+        <div className="bill-container w-[600px] max-h-[700px] overflow-y-auto bg-white shadow-md rounded-lg p-4">
             <div className="bill-header">
-                <h1>Bill for {payment.customerName}</h1>
-                <p>Date: {new Date(payment.historyDate).toLocaleDateString()}</p>
+                <h1 className="text-lg font-bold">Bill for {payment.customerName}</h1>
+                <p className="text-sm text-gray-600">Date: {new Date(payment.historyDate).toLocaleDateString()}</p>
             </div>
             <div className="bill-body">
-                <table className="bill-table" style={{border : 0}}>
+                <table className="bill-table w-full text-sm text-left text-gray-600">
                     <thead>
                         <tr>
-                            <th colSpan={2} style={{textAlign : "center"}}>
-                                <h1>Bill for {payment.customerName}</h1>
-                                <p>Date: {new Date(payment.historyDate).toLocaleDateString()}</p>
-                                <h1>Total : {payment.deposit}</h1>
+                            <th colSpan={2} className="text-center py-2 text-lg font-semibold">
+                                Bill for {payment.customerName}
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
-                            <tr>
-                                <td>Title : {payment.title}</td>
-                            </tr>
-                            <tr>
-                                <td>Customer Name : {payment.customerName}</td>
-                            </tr>
-                            <tr>
-                                <td>Date : {new Date(payment.historyDate).toLocaleString()}</td>
-                            </tr>
-                            <tr>
-                                <td>Check by : {payment.employeeName}</td>
-                            </tr>
-                            <tr>
-                                <td>Status : {payment.status}</td>
-                            </tr>
-                        </td>
-                        <td>
-                             <img width={300} height={400} alt={"bank"} src={"https://firebasestorage.googleapis.com/v0/b/ryukingdom-48b31.appspot.com/o/tpBank.jpg?alt=media&token=b99c941d-1b56-4a4a-ba1e-8a4a425ea483"}/>
-                        </td>
-                    </tr>
-
+                        <tr>
+                            <td>
+                                <div className="space-y-2">
+                                    <div>Title: {payment.title}</div>
+                                    <div>Customer Name: {payment.customerName}</div>
+                                    <div>Date: {new Date(payment.historyDate).toLocaleString()}</div>
+                                    <div>Check by: {payment.employeeName}</div>
+                                    <div>Status: {payment.status}</div>
+                                </div>
+                            </td>
+                            <td>
+                                <img
+                                    className="w-[300px] h-[400px] object-cover"
+                                    alt="bank"
+                                    src="https://res.cloudinary.com/dhsv9jnul/image/upload/v1734043658/bank_nbrv7c.jpg"
+                                />
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <div className="bill-footer">
-                <button style={{backgroundColor : "var(--bs-yellow)"}} className="m-2" onClick={() => printPDF()}>Print PDF</button>
-                <button onClick={() => navigate('/user/payment')}>Back to Payments</button>
+            <div className="bill-footer flex justify-center mt-4 gap-2">
+                <button
+                    className="bg-yellow-400 text-white px-4 py-2 rounded hover:bg-yellow-500 transition"
+                    onClick={() => printPDF()}
+                >
+                    Print PDF
+                </button>
+                <button
+                    className="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 transition"
+                    onClick={() => dismiss()}
+                >
+                    cancel
+                </button>
             </div>
         </div>
+
     );
 }

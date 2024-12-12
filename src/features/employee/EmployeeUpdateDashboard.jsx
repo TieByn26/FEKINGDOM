@@ -1,13 +1,13 @@
-import {SideBar} from "../../components/layout/SideBar";
-import {FooterDashboard} from "../../components/layout/FooterDashboard";
-import {useEffect} from "react";
-import {EmployeeList} from "./EmployeeList";
-import {HeaderDashboard} from "../../components/layout/HeaderDashboard";
-import {EmployeeAdd} from "./EmployeeAdd";
-import {Link} from "react-router-dom";
-import {EmployeeUpdate} from "./EmployeeUpdate";
+import { SideBar } from "../../components/layout/SideBar";
+import { FooterDashboard } from "../../components/layout/FooterDashboard";
+import { useEffect } from "react";
+import { EmployeeList } from "./EmployeeList";
+import { HeaderDashboard } from "../../components/layout/HeaderDashboard";
+import { EmployeeAdd } from "./EmployeeAdd";
+import { Link } from "react-router-dom";
+import { EmployeeUpdate } from "./EmployeeUpdate";
 import AuthService from "../../services/AuthService";
-import {ErrorPage} from "../../components/layout/ErrorPage";
+import { ErrorPage } from "../../components/layout/ErrorPage";
 
 export function EmployeeUpdateDashboard() {
     useEffect(() => {
@@ -16,14 +16,18 @@ export function EmployeeUpdateDashboard() {
     return (<>
         <div id="page-top">
             <div id="wrapper" className="d-flex">
-                <SideBar/>
+                <SideBar />
                 <div className="d-flex flex-column w-100 h-100" id="content-wrapper">
-                    <div id="content" style={{background: "#171821"}}>
-                        <HeaderDashboard/>
+                    <div id="content" style={{ background: "#171821" }}>
+                        <HeaderDashboard />
                         {
-                            AuthService.isCustomer()? <ErrorPage/> : (<>
-                                <div className="container-fluid"><Link to={"/user/employee/create"} className="btn btn-outline-light" type="button">Add Employee</Link><Link to={"/user/employee"} className="btn btn-outline-light" type="button">Employee List</Link>
-                                    <EmployeeUpdate/>
+                            AuthService.isCustomer() ? <ErrorPage /> : (<>
+                                <div className="container-fluid">
+                                    <div className="flex gap-2">
+                                        <Link to={"/user/employee/create"} className="btn btn-outline-light" type="button">Add Employee</Link>
+                                        <Link to={"/user/employee"} className="btn btn-outline-light" type="button">Employee List</Link>
+                                    </div>
+                                    <EmployeeUpdate />
                                 </div>
                             </>)
                         }
@@ -31,7 +35,7 @@ export function EmployeeUpdateDashboard() {
                     </div>
                 </div>
             </div>
-            <FooterDashboard/>
+            <FooterDashboard />
         </div>
     </>);
 }
