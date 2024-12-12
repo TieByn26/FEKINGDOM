@@ -232,7 +232,6 @@ export function EmployeeUpdate() {
                                 </button>
                             </Form>)}
                         </Formik>
-
                     </div>
                 </div>
             </div>
